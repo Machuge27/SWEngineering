@@ -6,8 +6,7 @@
 - [Features](#features)
 - [Technologies Used](#technologies-used)
 - [Setup Instructions](#setup-instructions)
-- [Team Members](#team-members)
-- [License](#license)
+- [Group Members](#group-members)
 
 ---
 
