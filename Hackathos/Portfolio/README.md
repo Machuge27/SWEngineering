@@ -27,7 +27,6 @@ This is personal portfolio project designed to showcase individual and collabora
 
 ## Technologies Used
 - **Frontend:** HTML, JavaScript 
-- **Backend:** Node.js 
 - **Styling:** CSS
 - **Version Control:** Git & GitHub
 
