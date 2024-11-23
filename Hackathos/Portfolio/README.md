@@ -46,7 +46,7 @@ This is personal portfolio project designed to showcase individual and collabora
 ---
 
 ## Group Members
-1. **[Hillary Kiprotich]**
+1. **[Hillary Kiprotich](https://github.com/Machuge27/SWEngineering/tree/main/Hackathos/Portfolio)**
 2. **[Hassan Khalifa](https://github.com/Faruq-Feroz/Hassan-Faruq)**
 3. **Saddam Saku**
 4. **Rashid said**
