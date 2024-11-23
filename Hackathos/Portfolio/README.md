@@ -35,7 +35,7 @@ This is personal portfolio project designed to showcase individual and collabora
 ## Setup Instructions
 1. Clone the repository:
    ```bash
-   git clone <repo-link>
+   git clone https://github.com/Machuge27/SWEngineering/tree/main/Hackathos/Portfolio
    ```
 2. Navigate into the project directory:
    ```bash
