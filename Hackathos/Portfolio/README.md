@@ -1,6 +1,8 @@
 
 # Portfolio Project
 
+You can quickly check out the site [here](https://machuge27.github.io/SWEngineering/)
+
 ## Table of Contents
 - [Project Overview](#project-overview)
 - [Features](#features)

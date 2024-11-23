@@ -472,6 +472,9 @@ h3 {
   gap: 10px;
   width: 100%;
 }
+.form-inputs input{
+  margin-bottom: .5rem;
+}
 .input-field {
   width: 50%;
   height: 55px;
