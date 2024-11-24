@@ -418,7 +418,7 @@
         <div class="col">
             <div class="form-control">
                 <div class="form-control">
-                    <form action="https://api.web3forms.com/submit" method="POST">
+                    <form id="mailForm">
                 
                         <input type="hidden" name="access_key" value="2059cc6e-7901-4d90-9c23-a387be0e0f89">
                         <div class="form-inputs">
@@ -492,12 +492,12 @@
 <script src="https://unpkg.com/scrollreveal"></script>
 <script>
     const scriptURL = 'https://script.google.com/macros/s/AKfycbyYzrdK3OTateXzGf5suzkFDZaniCQsZf7adQ2J0UMpZwdX2XI1Q4Vv58ZWIut-rRo/exec'
-    const form = document.forms['submit-to-google-sheet']
+    const form1 = document.forms['submit-to-google-sheet']
 
-    form.addEventListener('submit', e => {
+    form1.addEventListener('submit', e => {
         e.preventDefault()
         fetch(scriptURL, {
-            method: 'POST', body: new FormData(form)
+            method: 'POST', body: new FormData(form1)
         })
             .then(response => console.log('Success!', response))
             .catch(error => console.error('Error!', error.message))
@@ -734,48 +734,71 @@
 
     /* Sending the mail */
 
-    document.getElementById('sendButton').addEventListener('click', function () {
-        // Get input field values
-        console.log("sending")
-        var name = document.getElementById('nameInput').value;
-        var email = document.getElementById('emailInput').value;
-        var message = document.getElementById('messageInput').value;
-        // Validate input fields (you can add more validation if needed)
-        if (name.trim() === '' || email.trim() === '' || message.trim() === '') {
-            alert('Please fill in all fields');
-            return;
-        }
-        // Prepare data to send to Flask backend
-        var data = {
-            name: name,
-            email: email,
-            message: message
-        };
-        console.log(data);
-        // Send data to Flask backend using fetch API
-        /*fetch('https://mutaihillary27.pythonanywhere.com/api/test2', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data)
-        })
-            .then(response => {
-                if (response.ok) {
-                    alert('Email sent successfully');
-                    console.log(response.json())
-                    // Clear input fields after successful submission
-                    document.getElementById('nameInput').value = '';
-                    document.getElementById('emailInput').value = '';
-                    document.getElementById('messageInput').value = '';
-                }
-            })
-            //.then()
-            .catch(error => {
-                console.error('Error sending email:', error);
-                //alert('An error occurred while sending email');
-            });*/
-    });
+   // Get form and input elements
+   const form = document.getElementById("mailForm");
+   const nameInput = form.querySelector('input[name="name"]');
+   const emailInput = form.querySelector('input[name="email"]');
+   const messageInput = form.querySelector('textarea[name="message"]');
+   
+   // Form submission handler
+   form.addEventListener("submit", async (event) => {
+       event.preventDefault(); // Prevent default form submission
+       
+       // Get values from form inputs
+       const name = nameInput.value.trim();
+       const email = emailInput.value.trim();
+       const message = messageInput.value.trim();
+
+       // Basic form validation
+       if (!name || !email || !message) {
+           alert("Please fill in all the fields.");
+           return;
+       }
+
+       // Check if the email format is valid
+       const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+       if (!emailPattern.test(email)) {
+           alert("Please enter a valid email address.");
+           return;
+       }
+
+       // Prepare the data to send
+       const dataToSend = {
+           name: name,
+           email: email,
+           message: message,
+       };
+       console.log(dataToSend)
+       const url = "https://mutaihillary27.pythonanywhere.com/api/email/"; // Replace with your Django endpoint
+
+       try {
+           // Send the data to the Django API endpoint using fetch
+           const response = await fetch(url, {
+               method: "POST", // HTTP method
+               headers: {
+                   "Content-Type": "application/json", // Send data as JSON
+               },
+               body: JSON.stringify(dataToSend), // Convert JS object to JSON string
+           });
+
+           // Check if the response is successful
+           if (!response.ok) {
+               throw new Error(`HTTP error! Status: ${response.status}`);
+           }
+
+           // Parse JSON response from the server
+           const responseData = await response.json();
+           console.log("Response from server:", responseData);
+
+           // Optionally, show a success message or reset form
+           alert("Message sent successfully!");
+           form.reset(); // Clear form inputs
+
+       } catch (error) {
+           console.error("Error:", error);
+           alert("Error sending message. Please try again.");
+       }
+   });
 
 </script>
 </body>
