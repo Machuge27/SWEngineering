@@ -33,6 +33,7 @@ This is personal portfolio project designed to showcase individual and collabora
 ## Technologies Used
 - **Frontend:** HTML, JavaScript 
 - **Styling:** CSS
+- **Backend:** Django
 - **Version Control:** Git & GitHub
 
 ---
