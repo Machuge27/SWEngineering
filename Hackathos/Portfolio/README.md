@@ -25,7 +25,7 @@ This is personal portfolio project designed to showcase individual and collabora
 ## Features
 - Responsive design
 - Project showcase gallery
-- Contact forms for each team member
+- Contact forms to reach me
 - My current endeavors
 
 ---
