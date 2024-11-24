@@ -9,6 +9,7 @@ You can quickly check out the site [here](https://machuge27.github.io/SWEngineer
 - [Technologies Used](#technologies-used)
 - [Setup Instructions](#setup-instructions)
 - [Group Members](#group-members)
+- [Project Images](#project-images)
 
 ---
 
@@ -61,11 +62,14 @@ This is personal portfolio project designed to showcase individual and collabora
 
 ---
 
-## Admin site where all emails go instead of messing up your actual email cos most of them ight be spam....
+## Project Images
+### Admin site where all emails go instead of messing up your actual email cos most of them ight be spam....
 ![alt text](image.png)
 
-## You can read each email specifically the decide it to reply
+### You can read each email specifically the decide it to reply
 ![alt text](image-1.png)
 
-## And this is a sample pythonanywhere server log when a message is sent
+### And this is a sample pythonanywhere server log when a message is sent
 ![alt text](image-2.png)
+
+---
