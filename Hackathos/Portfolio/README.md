@@ -64,10 +64,10 @@ This is personal portfolio project designed to showcase individual and collabora
 ---
 
 ## Project Images
-### Admin site where all emails go instead of messing up your actual email cos most of them ight be spam....
+### Admin site where all emails go instead of messing up your actual email because most of them might be spam or someone playing with you....
 ![alt text](image.png)
 
-### You can read each email specifically the decide it to reply
+### You can read each email specifically the decide if to reply, or delete...
 ![alt text](image-1.png)
 
 ### And this is a sample pythonanywhere server log when a message is sent
