@@ -86,8 +86,9 @@ body {
 nav {
   position: fixed;
   display: flex;
-  /* justify-content: space-between; */
-  width: 100%;
+  /* justify-content: space-between; 
+  */
+  width: 100dvw;
   height: 90px;
   line-height: 90px;
   background: var(--body-color);
@@ -129,7 +130,7 @@ nav {
 }
 .nav-menu-btn {
   display: none;
-  padding: 0 .5rem;
+  padding: 0 1rem;
 }
 .nav-menu-btn i {
   font-size: 28px;
@@ -259,7 +260,7 @@ nav {
 }
 .scroll-btn {
   position: absolute;
-  bottom: 0;
+  bottom: 2rem;
   left: 50%;
   translate: -50%;
   display: flex;
