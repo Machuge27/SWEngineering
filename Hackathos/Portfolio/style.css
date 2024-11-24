@@ -78,7 +78,7 @@ body {
   background: var(--body-color);
 }
 .container {
-  width: 100%;
+  width: 100dvw;
   position: relative;
 }
 
@@ -86,17 +86,19 @@ body {
 nav {
   position: fixed;
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   width: 100%;
   height: 90px;
   line-height: 90px;
   background: var(--body-color);
-  padding-inline: 9vw;
+  /* padding-inline: 9vw; */
   transition: 0.3s;
   z-index: 100;
 }
 .nav-logo {
   position: relative;
+  margin-right: auto;
+  padding: 0 .5rem;
 }
 .nav-name {
   font-size: 30px;
@@ -127,6 +129,7 @@ nav {
 }
 .nav-menu-btn {
   display: none;
+  padding: 0 .5rem;
 }
 .nav-menu-btn i {
   font-size: 28px;

@@ -18,7 +18,7 @@ This is personal portfolio project designed to showcase individual and collabora
 
 ## Preview
 
-![alt text](image-3.png)
+![alt text](image-5.png)
 
 ---
 
@@ -54,11 +54,12 @@ This is personal portfolio project designed to showcase individual and collabora
 ## Group Members
 1. **[Hillary Kiprotich](https://github.com/Machuge27/SWEngineering/tree/main/Hackathos/Portfolio)**
 2. **[Hassan Khalifa](https://github.com/Faruq-Feroz/Hassan-Faruq)**
-3. **Saddam Saku**
+3. **[Saddam Saku](https://github.com/SaddamTechie/saddamtechie.github.io)**
 4. **[Rashid said](https://github.com/SirRasheed/portfoliorasheed.git)**
 5. **[Tom Obande](https://github.com/tbrowns/portfolio)**
-6. Alexander Brian
-7. **[Zachariah Evans](https://github.com/Eva254-ke/myportfolio )**
+6. **[Alexander Brian](https://github.com/BrianKachumba/HACKATHON.git)**
+7. **[Zachariah Evans](https://github.com/Eva254-ke/myportfolio)**
+7. **[Joshua Ogallo](https://github.com/ogallj/my_portfolio)**
 
 
 ---
