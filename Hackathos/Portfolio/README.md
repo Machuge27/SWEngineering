@@ -15,6 +15,10 @@ You can quickly check out the site [here](https://machuge27.github.io/SWEngineer
 ## Project Overview
 This is personal portfolio project designed to showcase individual and collaborative skills. The portfolio includes information about my personal information, my skills, the projects i've work on,and a way to contact me through email. Also i've got links to my socials please check them out and follow where applicable.
 
+## Preview
+
+![alt text](image-3.png)
+
 ---
 
 ## Features
@@ -49,10 +53,19 @@ This is personal portfolio project designed to showcase individual and collabora
 1. **[Hillary Kiprotich](https://github.com/Machuge27/SWEngineering/tree/main/Hackathos/Portfolio)**
 2. **[Hassan Khalifa](https://github.com/Faruq-Feroz/Hassan-Faruq)**
 3. **Saddam Saku**
-4. **Rashid said**
+4. **[Rashid said](https://github.com/SirRasheed/portfoliorasheed.git)**
 5. **[Tom Obande](https://github.com/tbrowns/portfolio)**
+6. Alexander Brian
+7. **[Zachariah Evans](https://github.com/Eva254-ke/myportfolio )**
+
 
 ---
 
+## Admin site where all emails go instead of messing up your actual email cos most of them ight be spam....
+![alt text](image.png)
 
+## You can read each email specifically the decide it to reply
+![alt text](image-1.png)
 
+## And this is a sample pythonanywhere server log when a message is sent
+![alt text](image-2.png)
