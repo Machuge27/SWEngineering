@@ -51,7 +51,11 @@ This is personal portfolio project designed to showcase individual and collabora
 
 ## More info
 This is the main github repository link, where the page is hosted, (Github pages):
-
+ For SSH:
+```bash
+   git@github.com:Machuge27/SWEngineering.git
+```   
+Or for HTTPS
 ```bash
    git@github.com:Machuge27/SWEngineering.git
 ```   
