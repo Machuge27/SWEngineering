@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Portfolio</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2a2a2a;
+            --secondary: #4a90e2;
+            --text: #333;
+            --light: #f5f5f5;
+            --transition: all 0.3s ease;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--light);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1rem;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        nav.scrolled {
+            padding: 0.5rem;
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s forwards;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s 0.2s forwards;
+        }
+
+        /* Projects Section */
+        .projects {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .project-info {
+            padding: 1.5rem;
+        }
+
+        .project-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Skills Section */
+        .skills {
+            padding: 5rem 2rem;
+            background: white;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .skill-item {
+            text-align: center;
+            padding: 1rem;
+            transition: var(--transition);
+        }
+
+        .skill-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-icon {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 5rem 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-form {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: grid;
+            gap: 0.5rem;
+        }
+
+        input,
+        textarea {
+            padding: 0.8rem;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        input:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--secondary);
+        }
+
+        button {
+            padding: 1rem 2rem;
+            background: var(--secondary);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        button:hover {
+            background: #357abd;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            color: var(--secondary);
+            transform: translateY(-3px);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .featured-text {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            min-height: 80vh;
+            flex-direction: column;
+            width: 70%;
+            padding-left: 20px;
+        }
+
+        .featured-text-card span {
+            background: var(--third-color);
+            color: var(--color-white);
+            padding: 3px 8px;
+            font-size: clamp(24px, 4vw, 50px);
+            border-radius: 5px;
+        }
+
+        .featured-name {
+            font-size: clamp(24px, 4vw, 50px);
+            font-weight: 600;
+            color: var(--text-color-second);
+            margin-block: 20px;
+        }
+
+        .typedText {
+            text-transform: capitalize;
+            color: var(--text-color-third);
+        }
+
+        .featured-text-info {
+            font-size: 15px;
+            margin-bottom: 30px;
+            color: var(--text-color-second);
+        }
+
+        .featured-text-btn {
+            display: flex;
+            gap: 20px;
+        }
+
+        .featured-text-btn>.blue-btn {
+            background: var(--first-color);
+            color: var(--color-white);
+        }
+
+        .featured-text-btn>.blue-btn:hover {
+            background: var(--first-color-hover);
+        }
+
+        .social_icons {
+            display: flex;
+            margin-top: 5em;
+            gap: 30px;
+        }
+
+        .icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.25);
+            cursor: pointer;
+        }
+
+        .icon:hover {
+            color: var(--first-color);
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="nav-content">
+            <a href="#" class="logo">Portfolio</a>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#projects">Projects</a>
+                <a href="#skills">Skills</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="featured-text">
+                <div class="featured-text-card">
+                    <span>Mutai Hillary</span>
+                </div>
+                <div class="featured-name">
+                    <p>I'm <span class="typedText"></span></p>
+                </div>
+                <div class="featured-text-info">
+                    <ul>
+                        <li>
+                            <p>Experienced frontend developer with a passion for creating visually stunning
+                                and user-friendly websites.
+                            </p>
+                        </li>
+                        <li>
+                            <p>Can work under minimum supervision and deliver quality work on time.
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="featured-text-btn">
+                    <!-- <button class="btn blue-btn">Hire Me</button> -->
+                    <button class="btn"><a
+                            href="https://d.docs.live.net/e5773b0137649f0c/Hillary%20Kiprotich%20Mutai%20CV.docx">Download
+                            CV <i class="uil uil-file-alt"></i></a></button>
+                </div>
+                <div class="social_icons">
+                    <div class="icon"><a href="https://instagram.com" title="Instagram-Not Available"><i
+                                class="uil uil-instagram"></i></a></i>
+                    </div>
+                    <div class="icon"><a
+                            href="https://www.linkedin.com/in/hillary-mutai-5107872bb?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                            title="Linkedin"><i class="uil uil-linkedin-alt"></i></a></div>
+                    <div class="icon"><a href="https://github.com/Machuge27/Machege27.github.io" title="Github"><i
+                                class="uil uil-github-alt"></i></a></div>
+                    <div class="icon"><a href="https://www.facebook.com/hillux.mt?mibextid=rS40aB7S9Ucbxw6v"
+                            title="Facebook"><i class="uil uil-facebook-f"></i></a>
+                    </div>
+                    <div class="icon"><a href="https://x.com/Hilla20636498?t=LS4dMrYptobsEh9jYPH9iw&s=08" title="X"><i
+                                class="uil uil-twitter"></i></a></div>
+                    <div class="icon"><a href="https://www.fiverr.com/"><i class="uil uil-fiverr"
+                                title="Fiver">F</i></a></div>
+                </div>
+
+            </div>
+            <div class="featured-image">
+                <div class="image">
+                    <img src="file.png" alt="avatar">
+                </div>
+            </div>
+            <div class="scroll-icon-box">
+                <a href="#about" class="scroll-btn">
+                    <i class="uil uil-mouse-alt"></i>
+                    <p>Scroll Down</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="projects">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="project-grid">
+            <div class="project-card">
+                <img src="/api/placeholder/400/200" alt="Project 1" class="project-image">
+                <div class="project-info">
+                    <h3 class="project-title">E-Commerce Platform</h3>
+                    <p>A full-stack e-commerce solution with React and Node.js</p>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="/api/placeholder/400/200" alt="Project 2" class="project-image">
+                <div class="project-info">
+                    <h3 class="project-title">Social Media Dashboard</h3>
+                    <p>Analytics dashboard with real-time data visualization</p>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="/api/placeholder/400/200" alt="Project 3" class="project-image">
+                <div class="project-info">
+                    <h3 class="project-title">Mobile Fitness App</h3>
+                    <p>React Native app for tracking workouts and nutrition</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="skills">
+        <h2 class="section-title">Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-item">
+                <i class="fab fa-react skill-icon"></i>
+                <h3>React</h3>
+            </div>
+            <div class="skill-item">
+                <i class="fab fa-node skill-icon"></i>
+                <h3>Node.js</h3>
+            </div>
+            <div class="skill-item">
+                <i class="fab fa-js skill-icon"></i>
+                <h3>JavaScript</h3>
+            </div>
+            <div class="skill-item">
+                <i class="fab fa-python skill-icon"></i>
+                <h3>Python</h3>
+            </div>
+            <div class="skill-item">
+                <i class="fab fa-sass skill-icon"></i>
+                <h3>Sass</h3>
+            </div>
+            <div class="skill-item">
+                <i class="fab fa-github skill-icon"></i>
+                <h3>Git</h3>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2 class="section-title">Get in Touch</h2>
+        <form class="contact-form">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" rows="5" required></textarea>
+            </div>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 John Developer. All rights reserved.</p>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+
+</html>
