@@ -55,9 +55,9 @@ This is the main github repository link, where the page is hosted, (Github pages
 ```bash
    git@github.com:Machuge27/SWEngineering.git
 ```   
-Or for HTTPS
+and for HTTPS
 ```bash
-   git@github.com:Machuge27/SWEngineering.git
+   https://github.com/Machuge27/SWEngineering.git
 ```   
 ### _I had planed to use this repo to store all my coding practocals for this course, so i din't want to create a new repo! hence the trick:_
 
