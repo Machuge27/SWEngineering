@@ -49,6 +49,23 @@ This is personal portfolio project designed to showcase individual and collabora
    ```
 3. Open `index.html` in your browser to view the project.
 
+## More info
+This is the main github repository link, where the page is hosted, (Github pages):
+
+```bash
+   git@github.com:Machuge27/SWEngineering.git
+```   
+### _I had planed to use this repo to store all my coding practocals for this course, so i din't want to create a new repo! hence the trick:_
+
+- I modified the static.yml file, changing the path to the directory containing my portfolio files thus github knows where to look:
+
+```yml
+- name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Upload entire repository
+          path: './Hackathos/Portfolio-Group-22'
+```
 ---
 
 ## Group Members
