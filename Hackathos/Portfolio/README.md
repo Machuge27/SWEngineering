@@ -67,7 +67,7 @@ This is personal portfolio project designed to showcase individual and collabora
 ![alt text](image.png)
 
 ### You can read each email specifically the decide it to reply
-![alt text](image-1.png)
+![alt text](image-4.png)
 
 ### And this is a sample pythonanywhere server log when a message is sent
 ![alt text](image-2.png)
