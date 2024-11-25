@@ -18,7 +18,7 @@ This is personal portfolio project designed to showcase individual and collabora
 
 ## Preview
 
-![alt text](image-5.png)
+![alt text](images/image-5.png)
 
 ---
 
@@ -87,12 +87,12 @@ and for HTTPS
 
 ## Project Images
 ### Admin site where all emails go instead of messing up your actual email because most of them might be spam or someone playing with you....
-![alt text](image.png)
+![alt text](images/image.png)
 
 ### You can read each email specifically the decide if to reply, or delete...
-![alt text](image-1.png)
+![alt text](images/image-1.png)
 
 ### And this is a sample pythonanywhere server log when a message is sent
-![alt text](image-4.png)
+![alt text](images/image-4.png)
 
 ---
