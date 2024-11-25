@@ -832,7 +832,19 @@
                 alert("Error sending message. Please try again.");
             }
         });
-
+        document.addEventListener('scroll', () => {
+            const scrollBtn = document.querySelector('.scroll-btn');
+            const scrollPosition = window.scrollY;
+        
+            if (scrollPosition === 0) {
+                // User is at the top; show the button
+                scrollBtn.style.display = 'flex';
+            } else {
+                // User has scrolled; hide the button
+                scrollBtn.style.display = 'none';
+            }
+        });
+        
     </script>
 </body>
 
