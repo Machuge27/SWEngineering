@@ -88,7 +88,7 @@ nav {
   display: flex;
   /* justify-content: space-between; 
   */
-  width: 100dvw;
+  width: 100%;
   height: 90px;
   line-height: 90px;
   background: var(--body-color);
@@ -192,7 +192,7 @@ nav {
 }
 .typedText {
   text-transform: capitalize;
-  font-size: clamp(.5rem 1rem 2rem);
+  font-size: clamp(.5rem 1rem 1.7rem);
   color: var(--text-color-third);
 }
 .featured-text-info {
@@ -298,7 +298,7 @@ nav {
 /* -- ## --- RESUABLE CSS -- ## -- */
 .top-header {
   text-align: center;
-  margin-bottom: 5em;
+  margin-bottom: 2rem;
 }
 .top-header h1 {
   font-weight: 600;
