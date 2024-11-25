@@ -581,7 +581,6 @@ footer {
     min-height: 450px;
     height: 90vh;
     transition: 0.3s;
-    border: 2px solid red;
   }
   .nav_menu_list {
     flex-direction: column;
