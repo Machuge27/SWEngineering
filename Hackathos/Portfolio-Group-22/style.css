@@ -260,7 +260,7 @@ nav {
 }
 .scroll-btn {
   position: absolute;
-  bottom: 2dvh;
+  bottom: 3dvh;
   left: 50%;
   translate: -50%;
   display: flex;
@@ -1088,3 +1088,8 @@ a {
       grid-template-columns: repeat(2, 1fr);
   }
 }
+
+
+/* 
+* Coding is  my passion😥💀.
+*/
