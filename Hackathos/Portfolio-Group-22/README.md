@@ -18,8 +18,7 @@ This is personal portfolio project designed to showcase individual and collabora
 
 ## Preview
 
-![alt text](images/image-5.png)
-
+![alt text](image-2.png)
 ---
 
 ## Features
