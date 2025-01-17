@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Send Request with Data</title>
+</head>
+<body>
+    <h1>Send Data</h1>
+    <form id="mailForm">  
+        <div class="form-inputs">
+            <input type="text" name="name" class="input-field" placeholder="Name" required>
+            <input type="email" name="email" class="input-field" placeholder="Email" required>
+        </div>
+
+        <div class="text-area">
+            <textarea name="message" placeholder="Message" required></textarea>
+        </div>
+
+        <div class="form-button">
+            <button type="submit" class="btn">Send</button>
+        </div>
+    </form>
+
+    <script>
+        // Get form and input elements
+        const form = document.getElementById("mailForm");
+        const nameInput = form.querySelector('input[name="name"]');
+        const emailInput = form.querySelector('input[name="email"]');
+        const messageInput = form.querySelector('textarea[name="message"]');
+        
+        // Form submission handler
+        form.addEventListener("submit", async (event) => {
+            event.preventDefault(); // Prevent default form submission
+            
+            // Get values from form inputs
+            const name = nameInput.value.trim();
+            const email = emailInput.value.trim();
+            const message = messageInput.value.trim();
+
+            // Basic form validation
+            if (!name || !email || !message) {
+                alert("Please fill in all the fields.");
+                return;
+            }
+
+            // Check if the email format is valid
+            const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+            if (!emailPattern.test(email)) {
+                alert("Please enter a valid email address.");
+                return;
+            }
+
+            // Prepare the data to send
+            const dataToSend = {
+                name: name,
+                email: email,
+                message: message,
+            };
+
+            const url = "https://mutaihillary27.pythonanywhere.com/api/email/"; // Replace with your Django endpoint
+
+            try {
+                // Send the data to the Django API endpoint using fetch
+                const response = await fetch(url, {
+                    method: "POST", // HTTP method
+                    headers: {
+                        "Content-Type": "application/json", // Send data as JSON
+                    },
+                    body: JSON.stringify(dataToSend), // Convert JS object to JSON string
+                });
+
+                // Check if the response is successful
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+
+                // Parse JSON response from the server
+                const responseData = await response.json();
+                console.log("Response from server:", responseData);
+
+                // Optionally, show a success message or reset form
+                alert("Message sent successfully!");
+                form.reset(); // Clear form inputs
+
+            } catch (error) {
+                console.error("Error:", error);
+                alert("Error sending message. Please try again.");
+            }
+        });
+        
+    </script>
+</body>
+</html>
