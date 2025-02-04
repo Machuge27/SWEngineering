@@ -101,3 +101,73 @@ git config --global push.autoSetupRemote always
 ``` 
 
 This will automatically link branches to the remote when you push them for the first time.
+
+## Downloadings a specific folder from a repository
+
+To download a **specific file** from a GitHub repository (or similar platforms like GitLab/Bitbucket) without cloning the entire repo, here are the easiest methods:
+
+---
+
+### **1. Using the GitHub Web Interface** (Simplest)
+1. Go to the repository (e.g., `github.com/username/repo`).
+2. Navigate to the specific file you want (e.g., `src/file.txt`).
+3. Click the file to open it.
+4. Click the **"Raw"** button (top-right) to view the raw content.
+5. **Right-click** the page and select **"Save As"** to download the file.
+
+---
+
+### **2. Using `git` (Sparse Checkout)**  
+If you want to download a single file/folder **without cloning the entire repo**:
+```bash
+# Initialize a new empty repo
+mkdir temp-dir && cd temp-dir
+git init
+
+# Enable sparse checkout
+git config core.sparseCheckout true
+
+# Specify the file/folder to download (e.g., "src/file.txt")
+echo "src/file.txt" >> .git/info/sparse-checkout
+
+# Link the remote repo
+git remote add origin https://github.com/username/repo.git
+
+# Pull only the specified file
+git pull origin main  # Replace "main" with the branch name
+```
+
+![alt](./python_pracs/images/cloning%20specific%20folder.jpg)
+
+---
+
+### **3. Using `wget` or `curl`**  
+For public repositories, you can directly download the raw file via its URL:
+```bash
+# Replace with the raw file URL (use the "Raw" button to get the link)
+wget https://raw.githubusercontent.com/username/repo/main/path/to/file.txt
+
+# Or using curl
+curl -O https://raw.githubusercontent.com/username/repo/main/path/to/file.txt
+```
+
+---
+
+### **4. Using GitHub CLI (`gh`)**  
+If you have the [GitHub CLI](https://cli.github.com/) installed:
+```bash
+gh repo view username/repo --files  # List files
+gh repo download username/repo --pattern "path/to/file.txt"
+```
+
+---
+
+### **5. Third-Party Tools**  
+- **DownGit**: Visit [https://minhaskamal.github.io/DownGit](https://minhaskamal.github.io/DownGit), paste the file’s GitHub URL, and download it.
+- **GitZip**: Browser extensions like [GitZip](https://chrome.google.com/webstore/detail/gitzip-for-github/ffabmkklhbepgcgfonabamgnfafbdlkn) let you download individual files/folders.
+
+---
+
+### **Notes**:
+- For **private repositories**, you’ll need to authenticate (e.g., via `git` with a personal access token or SSH key).
+- Replace `username`, `repo`, `main`, and file paths with your actual values.
