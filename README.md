@@ -14,7 +14,7 @@
 
 ## 📖 About This Repository  
 
-This repository serves as a collection of all my **assignments, practicals, coding challenges, and hackathon projects** throughout my Software Engineering journey at **PLP (Power Learning Platform)**. It covers various modules including **Python, Web Development, Software Engineering, AI, and more!**  
+This repository serves as a collection of all my **assignments, practicals, coding challenges, and hackathon projects** throughout my Software Engineering journey at **PLP (Power Learning Project)**. It covers various modules including **Python, Web Development, Software Engineering, AI, and more!**  
 
 ---
 
