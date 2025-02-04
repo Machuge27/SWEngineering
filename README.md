@@ -49,5 +49,3 @@ This repository serves as a collection of all my **assignments, practicals, codi
 🔗 [GitHub Profile](https://github.com/Machuge27)  
 
 ---
-
-This version is more structured, appealing, and informative. Let me know if you want any modifications! 🚀
