@@ -22,14 +22,14 @@ This repository serves as a collection of all my **assignments, practicals, codi
 
 | Module | Description | Directory Link |
 |--------|------------|---------------|
-| 🐍 **Python Programming** | Python assignments & exercises | [Python Practicals](https://github.com/Machuge27/SWEngineering/tree/main/python_pracs) |
-| 🌐 **Web Technologies V2.0** | Frontend & Backend Web Development | [Web Practicals](https://github.com/Machuge27/SWEngineering/tree/main/web_pracs) |
-| 🏗️ **Software Engineering** | Software development principles & best practices | [Web Practicals](https://github.com/Machuge27/SWEngineering/tree/main/Software_Engineering) |
-| 🗄️ **Database Design & Programming** | SQL, relational databases, and data modeling | [Web Practicals](https://github.com/Machuge27/SWEngineering/tree/main/Database) |
-| 🤖 **AI for Software Engineering** | Introduction to Artificial Intelligence | _To be updated_ |
-| 📱 **Dart with Flutter** | Mobile development using Dart & Flutter | _To be updated_ |
-| 🚀 **Full-Stack Development (MERN)** | Backend & Full-Stack Web Dev | _To be updated_ |
-| 🎯 **Entrepreneurship & Personal Development** | Startup and business development | [Entrepreneurship & Personal Development](https://github.com/Machuge27/SWEngineering/tree/main/Startups) |
+| 🐍 **Python Programming** | Python assignments & exercises | _[Python Practicals](https://github.com/Machuge27/SWEngineering/tree/main/python_pracs)_ |
+| 🌐 **Web Technologies V2.0** | Frontend & Backend Web Development | _[Web Practicals](https://github.com/Machuge27/SWEngineering/tree/main/web_pracs)_ |
+| 🏗️ **Software Engineering** | Software development principles & best practices | _[Web Practicals](https://github.com/Machuge27/SWEngineering/tree/main/Software_Engineering)_ |
+| 🗄️ **Database Design & Programming** | SQL, relational databases, and data modeling | _[Web Practicals](https://github.com/Machuge27/SWEngineering/tree/main/Database)_ |
+| 🤖 **AI for Software Engineering** | Introduction to Artificial Intelligence | _[AI for Software Engineering](https://github.com/Machuge27/SWEngineering/tree/main/AI%20for%20Software%20Development)_ |
+| 📱 **Dart with Flutter** | Mobile development using Dart & Flutter | _[Dart with Flutter](https://github.com/Machuge27/SWEngineering/tree/main/Dart%20with%20Flutter)_ |
+| 🚀 **Full-Stack Development (MERN)** | Backend & Full-Stack Web Dev | _[Full Stack Development](https://github.com/Machuge27/SWEngineering/tree/main/Full%20Stack%20Development)_ |
+| 🎯 **Entrepreneurship & Personal Development** | Startup and business development | _[Entrepreneurship & Personal Development](https://github.com/Machuge27/SWEngineering/tree/main/Startups)_ |
 
 ---
 
@@ -47,5 +47,7 @@ This repository serves as a collection of all my **assignments, practicals, codi
 📍 **Follow me on GitHub for updates!** 😊  
 
 🔗 [GitHub Profile](https://github.com/Machuge27)  
+
+_@MutaiHillary2025_
 
 ---
