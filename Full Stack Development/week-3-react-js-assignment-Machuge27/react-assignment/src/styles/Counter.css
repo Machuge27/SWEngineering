@@ -1,0 +1,86 @@
+.counter-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    margin: 1rem 0;
+    text-align: center;
+  }
+  
+  .counter-card h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #1f2937;
+  }
+  
+  .counter-display {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #3b82f6;
+    margin-bottom: 1rem;
+  }
+  
+  .counter-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  
+  .button-decrement {
+    background-color: #ef4444;
+    color: white;
+  }
+  
+  .button-decrement:hover {
+    background-color: #dc2626;
+  }
+  
+  .button-reset {
+    background-color: #e5e7eb;
+    color: #4b5563;
+  }
+  
+  .button-reset:hover {
+    background-color: #d1d5db;
+  }
+  
+  .button-increment {
+    background-color: #10b981;
+    color: white;
+  }
+  
+  .button-increment:hover {
+    background-color: #059669;
+  }
+  
+  /* src/App.css */
+  .app {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .main {
+    flex: 1;
+    padding: 1.5rem 0;
+  }
+  
+  .grid {
+    display: grid;
+    gap: 1.5rem;
+  }
+  
+  @media (min-width: 768px) {
+    .grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  
+  .footer {
+    background-color: #1f2937;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    margin-top: 2rem;
+  }
