@@ -1,6 +1,3 @@
-Here's a well-structured `README.md` for your GitHub repository:
-
----
 
 # 🚀 Hackathons
 
@@ -20,9 +17,4 @@ Welcome! This repository contains all my hackathon projects from my software eng
 
 ---
 
-💡 **Happy Coding!** 😍  
-📩 Feel free to reach out for collaboration or feedback!  
-
----
-
-This `README.md` provides a clear structure, links to specific directories, and a welcoming tone for GitHub visitors. Let me know if you'd like any modifications! 🚀
+💡 **Happy Coding!** 😍🚀
