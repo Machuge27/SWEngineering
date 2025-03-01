@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EasyMove - Relocation Services</title>
+    <link rel="icon" href="./assets/images/mini-logo.jpg"/>
+    <link rel="stylesheet" href="./styles/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">
+            <i class="fas fa-truck-moving"></i>
+            <span>EasyMove</span>
+        </div>
+        <button class="nav-toggle" aria-label="toggle navigation">
+            <span class="hamburger"></span>
+        </button>
+        <ul class="nav-menu">
+            <li><a href="index.html" class="nav-link active">Home</a></li>
+            <li><a href="services.html" class="nav-link">Services</a></li>
+            <li><a href="about.html" class="nav-link">About</a></li>
+            <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1 class="fade-in">Your Smooth Move Starts Here</h1>
+            <p class="subtitle fade-in">Professional relocation services to make your transition seamless</p>
+            <a href="#services" class="cta-button">Explore Our Services</a>
+        </div>
+    </header>
+
+    <main>
+        <section id="services" class="services-overview">
+            <h2>Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card" onclick="showServiceDetails('moving')">
+                    <i class="fas fa-box-open"></i>
+                    <h3>Moving Services</h3>
+                    <p>Professional packing and moving of your belongings</p>
+                </div>
+                <div class="service-card" onclick="showServiceDetails('housing')">
+                    <i class="fas fa-home"></i>
+                    <h3>Housing Assistance</h3>
+                    <p>Find your perfect new home with our expert guidance</p>
+                </div>
+                <div class="service-card" onclick="showServiceDetails('setup')">
+                    <i class="fas fa-couch"></i>
+                    <h3>Home Setup</h3>
+                    <p>Complete unpacking and arrangement services</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="why-choose-us">
+            <h2>Why Choose EasyMove?</h2>
+            <div class="features-grid">
+                <div class="feature">
+                    <i class="fas fa-clock"></i>
+                    <h3>Time-Saving</h3>
+                    <p>We handle everything while you focus on what matters</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Secure & Safe</h3>
+                    <p>Your belongings are fully insured during transit</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-star"></i>
+                    <h3>Experienced Team</h3>
+                    <p>Over 10 years of relocation expertise</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials">
+            <h2>What Our Clients Say</h2>
+            <div class="testimonial-slider">
+                <div class="testimonial-container">
+                    <div class="testimonial">
+                        <img src="./assets/images/download (1).jpeg" alt="">
+                        <span id="testimonial-author">- John Doe</span>
+                        <p id="testimonial-text">"EasyMove made our relocation stress-free and efficient. Highly recommended!"</p>
+                    </div>
+                </div>
+                <button class="slider-btn prev" onclick="prevTestimonial()">
+                    <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                </button>
+                <button class="slider-btn next" onclick="nextTestimonial()">
+                    <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                </button>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <h2>Ready to Start Your Journey?</h2>
+            <p>Get a free consultation and quote for your relocation needs</p>
+            <a href="contact.html" class="cta-button">Contact Us Now</a>
+        </section>
+    </main>
+
+    <div id="service-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div id="modal-content"></div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <img src="./assets/images/logo.jpg" alt="logo">
+                <p>Making relocation easy and stress-free</p>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Email: info@easymove.com</p>
+                <p>Phone: (555) 123-4567</p>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 EasyMove. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="./scripts/scripts.js"></script>
+</body>
+</html>

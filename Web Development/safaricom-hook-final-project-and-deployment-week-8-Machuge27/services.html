@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - EasyMove</title>
+    <link rel="icon" href="./assets/images/mini-logo.jpg"/>
+    <link rel="stylesheet" href="./styles/services.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">
+            <i class="fas fa-truck-moving"></i>
+            <span>EasyMove</span>
+        </div>
+        <button class="nav-toggle" aria-label="toggle navigation">
+            <span class="hamburger"></span>
+        </button>
+        <ul class="nav-menu">
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="services.html" class="nav-link active">Services</a></li>
+            <li><a href="about.html" class="nav-link">About</a></li>
+            <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main class="services-page">
+        <header class="page-header">
+            <h1>Our Relocation Services</h1>
+            <p>Comprehensive solutions for a stress-free move</p>
+        </header>
+
+        <section class="detailed-services">
+            <article class="service-detail">
+                <div class="service-image">
+                    <img src="assets/images/Moving Services.jpg" alt="Moving Service" loading="lazy">
+                </div>
+                <div class="service-info">
+                    <h2>Moving Services</h2>
+                    <ul>
+                        <li>Professional packing and unpacking</li>
+                        <li>Secure transportation</li>
+                        <li>Special item handling</li>
+                        <li>Storage solutions</li>
+                    </ul>
+                    <button class="quote-btn" onclick="showQuoteForm('moving')">Get Quote</button>
+                </div>
+            </article>
+
+            <article class="service-detail">
+                <div class="service-image">
+                    <img src="assets/images/Housing Assistance.jpg" alt="Housing Service" loading="lazy">
+                </div>
+                <div class="service-info">
+                    <h2>Housing Assistance</h2>
+                    <ul>
+                        <li>Property search and viewings</li>
+                        <li>Lease negotiation</li>
+                        <li>Neighborhood guidance</li>
+                        <li>Utility setup assistance</li>
+                    </ul>
+                    <button class="quote-btn" onclick="showQuoteForm('housing')">Get Quote</button>
+                </div>
+            </article>
+
+            <article class="service-detail">
+                <div class="service-image">
+                    <img src="assets/images/Home Setup.jpg" alt="Setup Service" loading="lazy">
+                </div>
+                <div class="service-info">
+                    <h2>Home Setup</h2>
+                    <ul>
+                        <li>Furniture assembly</li>
+                        <li>Room organization</li>
+                        <li>Electronics setup</li>
+                        <li>Disposal services</li>
+                    </ul>
+                    <button class="quote-btn" onclick="showQuoteForm('setup')">Get Quote</button>
+                </div>
+            </article>
+        </section>
+
+        <section class="pricing-packages">
+            <h2>Pricing Packages</h2>
+            <div class="package-grid">
+                <div class="package-card">
+                    <h3>Basic Package</h3>
+                    <p class="price">Starting at Ksh.30,000.00</p>
+                    <ul>
+                        <li>Basic packing service</li>
+                        <li>Transportation</li>
+                        <li>Basic unpacking</li>
+                        <li>Standard insurance</li>
+                    </ul>
+                    <button class="cta-button" onclick="selectPackage('basic')">Select Package</button>
+                </div>
+
+                <div class="package-card featured">
+                    <h3>Premium Package</h3>
+                    <p class="price">Starting at Ksh.49,999.00</p>
+                    <ul>
+                        <li>Full packing service</li>
+                        <li>Priority transportation</li>
+                        <li>Complete unpacking</li>
+                        <li>Premium insurance</li>
+                        <li>Home setup assistance</li>
+                    </ul>
+                    <button class="cta-button" onclick="selectPackage('premium')">Select Package</button>
+                </div>
+
+                <div class="package-card">
+                    <h3>Custom Package</h3>
+                    <p class="price">Custom Quote</p>
+                    <ul>
+                        <li>Tailored services</li>
+                        <li>Flexible scheduling</li>
+                        <li>Custom insurance options</li>
+                        <li>Personal coordinator</li>
+                    </ul>
+                    <button class="cta-button" onclick="selectPackage('custom')">Get Quote</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="service-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div id="modal-content"></div>
+        </div>
+    </div>
+
+    <div id="quote-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <form id="quote-form" class="quote-form" onsubmit="return handleQuoteSubmission(event)">
+                <h2>Get a Free Quote</h2>
+                <div class="form-group">
+                    <label for="service-type">Service Type</label>
+                    <select id="service-type" name="service-type" required>
+                        <option value="">Select a service</option>
+                        <option value="moving">Moving Services</option>
+                        <option value="housing">Housing Assistance</option>
+                        <option value="setup">Home Setup</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="move-date">Preferred Date</label>
+                    <input type="date" id="move-date" name="move-date" required>
+                </div>
+                <div class="form-group">
+                    <label for="details">Additional Details</label>
+                    <textarea id="details" name="details" rows="4"></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Get Quote</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <!-- Footer content same as index.html -->
+        <div class="footer-content">
+            <div class="footer-section">
+                <img src="./assets/images/logo.jpg" alt="logo">
+                <p>Making relocation easy and stress-free</p>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Email: info@easymove.com</p>
+                <p>Phone: (555) 123-4567</p>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 EasyMove. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="./scripts/scripts.js"></script>
+</body>
+</html>

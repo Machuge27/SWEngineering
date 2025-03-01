@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Gallery</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 class="title-animate">Interactive Gallery</h1>
+            <div class="loading-spinner"></div>
+        </header>
+
+        <section class="calculator-section">
+            <h2>Gallery Grid Calculator</h2>
+            <div class="input-group">
+                <input type="number" id="width" placeholder="Width (px)">
+                <input type="number" id="height" placeholder="Height (px)">
+                <button id="calculate-btn" class="hover-grow">Calculate Area</button>
+            </div>
+            <p id="result">Total area: <span id="area-result">0</span> px²</p>
+        </section>
+
+        <section class="gallery">
+            <div class="card" data-color="blue">
+                <div class="card-content">
+                    <h3>Card 1</h3>
+                    <p>Click to flip!</p>
+                </div>
+                <div class="card-back">
+                    <p>Back content</p>
+                </div>
+            </div>
+            <div class="card" data-color="green">
+                <div class="card-content">
+                    <h3>Card 2</h3>
+                    <p>Click to flip!</p>
+                </div>
+                <div class="card-back">
+                    <p>Back content</p>
+                </div>
+            </div>
+            <div class="card" data-color="purple">
+                <div class="card-content">
+                    <h3>Card 3</h3>
+                    <p>Click to flip!</p>
+                </div>
+                <div class="card-back">
+                    <p>Back content</p>
+                </div>
+            </div>
+        </section>
+
+        <button id="toggle-modal" class="hover-grow">Show Modal</button>
+        
+        <div class="modal" id="modal">
+            <div class="modal-content">
+                <h2>Interactive Modal</h2>
+                <p>This modal uses CSS animations controlled by JavaScript!</p>
+                <button id="close-modal" class="hover-grow">Close</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

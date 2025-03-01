@@ -1,0 +1,91 @@
+<!-- Assignment: Building a Multimedia Webpage and a Registration Form
+Objective:
+The goal of this assignment is to create a multimedia-rich webpage featuring audio and video elements and design a simple registration form with built-in HTML validation.
+
+Part 1: Multimedia Webpage
+Create an HTML webpage that includes the following:
+
+Audio Element:
+
+Add an audio file using the <audio> tag.
+Provide controls to play, pause, and adjust the volume.
+Use at least one source format (e.g., .mp3 or .ogg).
+Video Element:
+
+Add a video file using the <video> tag.
+Provide controls to play, pause, and adjust the volume.
+Include at least two source formats for compatibility (e.g., .mp4 and .webm).
+Add a poster image that displays before the video plays.
+Example Output:
+A webpage where users can play an audio track and watch a video.
+-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multimedia Page with Registration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .multimedia-section {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            justify-content: space-between;
+            margin-bottom: 30px;
+            background-color: aliceblue;
+            padding: 20px;
+        }
+
+        .audio-container,
+        .video-container {
+            width: 48%;
+        }
+
+        hr {
+            background-color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Multimedia Experience and Registration</h1>
+
+    <!-- Multimedia Section -->
+    <div class="multimedia-section">
+        <hr>
+        <!-- Audio Element -->
+        <div class="audio-container">
+            <h2>Audio Player</h2>
+            <audio controls>
+                <source src="/api/placeholder/audio/sample.mp3" type="audio/mpeg">
+                <source src="/api/placeholder/audio/sample.ogg" type="audio/ogg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+        <hr>
+        <!-- Video Element -->
+        <div class="video-container">
+            <h2>Video Player</h2>
+            <video width="100%" controls poster="/api/placeholder/400/300">
+                <source src="/api/placeholder/video/sample.mp4" type="video/mp4">
+                <source src="/api/placeholder/video/sample.webm" type="video/webm">
+                Your browser does not support the video element.
+            </video>
+        </div>
+        <hr>
+    </div>
+
+</body>
+
+</html>

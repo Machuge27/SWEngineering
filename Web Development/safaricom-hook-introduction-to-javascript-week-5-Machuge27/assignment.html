@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Assignment</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f5f5f5;
+            color: #333;
+            font-family: pt mono;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.5em;
+            color: #4caf50;
+            text-shadow: 1px 1px 2px #aaa;
+        }
+
+        p {
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        #dynamic-content {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            background: #fff;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        .output {
+            font-size: 1.2em;
+            color: #1f64cb;
+            margin: 10px 0;
+        }
+
+        button {
+            display: inline-block;
+            margin: 10px 5px;
+            padding: 10px 20px;
+            font-size: 1em;
+            color: #fff;
+            background-color: #46217d;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #322974;
+        }
+
+        #number-list {
+            margin-top: 20px;
+            padding: 10px;
+            background: #fff;
+            border: 1px solid #ddd;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            list-style: decimal inside;
+        }
+
+        /* Fade-in effect for dynamic content */
+        #dynamic-content p {
+            opacity: 0;
+            animation: fadeIn 1s ease-in forwards;
+
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Heading -->
+    <h1>JavaScript Assignment</h1>
+
+    <!-- Paragraph -->
+    <p>Learning JavaScript is fun! Below are interactive features created using JavaScript:</p>
+
+    <!-- Function call buttons -->
+    <p><strong>Testing the calculator function:</strong></p>
+    <button class="calculator" onclick="calculator()">Calculator</button>
+    
+    <p><strong>Testing the greetUser function:</strong></p>
+    <button class="greetuser" onclick="greetUser()">Greet User</button>
+    
+    <p><strong>Testing the checkVotingEligibility function:</strong></p>
+    <button class="eligibility" onclick="checkVotingEligibility()">Check Voting Eligibility</button>
+
+    <!-- Div for dynamic content -->
+    <div id="dynamic-content">
+        <p>Dynamic content will appear here.</p>
+    </div>
+
+    <!-- Ordered List for Numbers -->
+    <ol id="number-list"></ol>
+
+    <!-- External JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>

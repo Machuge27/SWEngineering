@@ -1,0 +1,175 @@
+<!-- 
+This assignment is designed to help you build foundational knowledge of HTML5, understand its structure, and practice creating web page content using semantic elements.
+
+Learning Objectives
+By completing this assignment, you will:
+
+Understand the structure and purpose of HTML5 in web development. Learn to create basic web page content using core HTML5 elements. Explore semantic HTML elements and their benefits for readability and SEO. Gain a basic understanding of accessibility and SEO best practices in HTML.
+
+Assignment Content
+HTML5 Basics Learn the structure of an HTML document (e.g., , , , ). Explore core elements such as headings, paragraphs, lists, links, and images.
+Semantic HTML Introduction to semantic tags like , , ,
+, and . Learn how semantic elements improve content readability and support SEO.
+Accessibility and SEO Basics Understand the importance of accessible HTML and SEO-friendly practices. Use attributes like alt, title, and semantic structures to improve usability.
+Activities
+Creating a Simple Webpage: Design a basic webpage that includes text, images, and links. Use common HTML tags like h1, p, a, img, and ul or ol. Structure a webpage with semantic tags such as header, footer, nav, section, and article. Ensure the content is well-organized for readability and SEO. 
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Development Learning Hub</title>
+    <meta name="description" content="Explore the fundamentals of web development, HTML5, and modern web technologies">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+
+        header {
+            background-color: #f4f4f4;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #333;
+            color: white;
+            padding: 1rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-right: 15px;
+        }
+
+        .hero-image {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px 0;
+        }
+
+        section {
+            margin-bottom: 30px;
+        }
+
+        footer {
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header with semantic header tag -->
+    <header>
+        <h1>Web Development Learning Hub</h1>
+        <p>Your Gateway to Modern Web Technologies</p>
+    </header>
+
+    <!-- Navigation with semantic nav tag -->
+    <nav>
+        <a href="#html-basics">HTML Basics</a>
+        <a href="#semantic-html">Semantic HTML</a>
+        <a href="#accessibility">Accessibility</a>
+    </nav>
+
+    <!-- Main content with semantic main tag -->
+    <main>
+        <!-- Hero section with semantic section tag -->
+        <section id="hero">
+            <img src="https://miro.medium.com/v2/resize:fit:1400/1*fHrAZJ1_L0Ff9dvVexL5_A.png"
+                alt="Web Development Landscape" class="hero-image">
+        </section>
+
+        <!-- HTML Basics section -->
+        <section id="html-basics">
+            <h2>HTML5 Basics</h2>
+            <article>
+                <h3>Core HTML Elements</h3>
+                <p>HTML5 provides a rich set of elements to structure web content effectively. Here are some fundamental
+                    elements:</p>
+
+                <h4>Headings</h4>
+                <p>Headings range from <code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code>, with <code>&lt;h1&gt;</code>
+                    being the most important.</p>
+
+                <h4>Text Formatting</h4>
+                <ul>
+                    <li><strong>Paragraphs</strong>: Use <code>&lt;p&gt;</code> tags for text blocks</li>
+                    <li><em>Emphasis</em>: Use <code>&lt;em&gt;</code> for italics and <code>&lt;strong&gt;</code> for
+                        bold</li>
+                </ul>
+            </article>
+        </section>
+
+        <!-- Semantic HTML section -->
+        <section id="semantic-html">
+            <h2>Semantic HTML</h2>
+            <article>
+                <h3>Benefits of Semantic Elements</h3>
+                <p>Semantic HTML provides meaning to web content, improving:</p>
+                <ol>
+                    <li>Accessibility for screen readers</li>
+                    <li>Search Engine Optimization (SEO)</li>
+                    <li>Code readability</li>
+                </ol>
+
+                <h4>Key Semantic Tags</h4>
+                <ul>
+                    <li><code>&lt;header&gt;</code>: Introductory content or navigational links</li>
+                    <li><code>&lt;nav&gt;</code>: Navigation menu</li>
+                    <li><code>&lt;main&gt;</code>: Primary content of the page</li>
+                    <li><code>&lt;article&gt;</code>: Self-contained content</li>
+                    <li><code>&lt;section&gt;</code>: Thematic grouping of content</li>
+                    <li><code>&lt;footer&gt;</code>: Closing or copyright information</li>
+                </ul>
+            </article>
+        </section>
+
+        <!-- Accessibility section -->
+        <section id="accessibility">
+            <h2>Accessibility and SEO Best Practices</h2>
+            <article>
+                <h3>Creating Inclusive Web Experiences</h3>
+                <p>Accessibility is crucial for ensuring all users can interact with web content.</p>
+
+                <h4>Key Accessibility Techniques</h4>
+                <ul>
+                    <li>Use meaningful <code>alt</code> text for images</li>
+                    <li>Provide proper heading hierarchy</li>
+                    <li>Ensure keyboard navigation</li>
+                    <li>Use ARIA labels when necessary</li>
+                </ul>
+
+                <h4>SEO Optimization</h4>
+                <p>Improve your website's search engine ranking with:</p>
+                <ul>
+                    <li>Descriptive <code>&lt;title&gt;</code> tags</li>
+                    <li>Meta descriptions</li>
+                    <li>Semantic HTML structure</li>
+                    <li>Responsive design</li>
+                </ul>
+            </article>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Web Development Learning Hub. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>

@@ -1,6 +1,8 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/TUGW0SrP)
 # Welcome to the HTML5 Basics Assignment repository! 
 
+[Repo](https://github.com/PLP-WebTechnologies/safaricom-hook-introduction-to-javascript-week-5-Machuge27.git)
+
 This assignment is designed to help you build foundational knowledge of HTML5, understand its structure, and practice creating web page content using semantic elements.
 
 ## Learning Objectives

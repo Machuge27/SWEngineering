@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Web Page</title>
+    <style>
+        /* Basic body styling */
+        body {
+            font-family: Arial, sans-serif; /* Clean, modern font */
+            max-width: 600px; /* Center and restrict width */
+            margin: 0 auto; /* Center the content horizontally */
+            padding: 20px; /* Add padding around content */
+            transition: background-color 0.3s ease; /* Smooth background color change */
+        }
+
+        /* Modal background overlay */
+        .modal {
+            display: none; /* Initially hidden */
+            position: fixed; /* Fixed position for full-screen overlay */
+            z-index: 1; /* Place above everything else */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scrolling if needed */
+            background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent black */
+        }
+
+        /* Modal content box */
+        .modal-content {
+            background-color: #fefefe; /* White background */
+            margin: 15% auto; /* Center vertically and horizontally */
+            padding: 20px; /* Add padding inside the box */
+            border: 1px solid #888; /* Light border */
+            width: 80%; /* Responsive width */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+            border-radius: 8px; /* Rounded corners */
+        }
+
+        /* Error message styling */
+        .error {
+            color: red; /* Highlight errors in red */
+            font-size: 0.8em; /* Smaller font size */
+        }
+
+        /* Input and dropdown styling */
+        input, select {
+            width: 100%; /* Take full width of container */
+            padding: 10px; /* Add padding for usability */
+            margin: 10px 0; /* Add spacing between elements */
+            border: 1px solid #ccc; /* Light border */
+            border-radius: 4px; /* Rounded corners */
+            box-sizing: border-box; /* Ensure padding doesn't affect width */
+            font-size: 1em; /* Standard font size */
+        }
+
+        /* Button styling */
+        button {
+            background-color: #007BFF; /* Blue background */
+            color: white; /* White text */
+            border: none; /* Remove border */
+            padding: 10px 15px; /* Padding inside button */
+            font-size: 1em; /* Standard font size */
+            cursor: pointer; /* Pointer cursor for interactivity */
+            border-radius: 4px; /* Rounded corners */
+            transition: background-color 0.3s ease; /* Smooth hover effect */
+        }
+
+        /* Button hover effect */
+        button:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+
+        /* Dropdown message styling */
+        #dropdownMessage {
+            margin-top: 10px; /* Add space above the message */
+            font-style: italic; /* Italicize text for emphasis */
+            color: #333; /* Darker color for readability */
+        }
+    </style>
+</head>
+<body>
+    <h1>Interactive Web Page</h1>
+
+    <!-- Color Toggle Button -->
+    <button onclick="toggleBackgroundColor()">Toggle Background</button>
+
+    <!-- Text Size Slider -->
+    <div>
+        <label for="textSizeSlider">Text Size</label>
+        <input type="range" id="textSizeSlider" min="12" max="36" value="16" oninput="adjustTextSize(this.value)">
+    </div>
+    <p id="dynamicText">This text will change size dynamically!</p>
+
+    <!-- Modal Trigger -->
+    <button onclick="openModal()">Open Modal</button>
+
+    <!-- Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span onclick="closeModal()" style="cursor:pointer;">&times;</span>
+            <h2>Modal Content</h2>
+            <p>This is a simple modal window.</p>
+        </div>
+    </div>
+
+    <!-- Form with Validation -->
+    <form id="registrationForm" onsubmit="return validateForm()">
+        <h2>Registration Form</h2>
+        
+        <input type="text" id="name" placeholder="Name" required>
+        <div id="nameError" class="error"></div>
+
+        <input type="email" id="email" placeholder="Email" required>
+        <div id="emailError" class="error"></div>
+
+        <input type="password" id="password" placeholder="Password" required>
+        <div id="passwordError" class="error"></div>
+
+        <!-- Bonus Dropdown -->
+        <select id="messageDropdown" onchange="showCustomMessage()">
+            <option value="">Gender</option>
+            <option value="option1">Male</option>
+            <option value="option2">Female</option>
+            <option value="option3">Rather not say</option>
+        </select>
+        <div id="dropdownMessage"></div>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        // Color Toggle Function
+        function toggleBackgroundColor() {
+            document.body.style.backgroundColor = 
+                document.body.style.backgroundColor === 'lightblue' ? 'lightyellow' : 'lightblue';
+        }
+
+        // Text Size Adjustment Function
+        function adjustTextSize(size) {
+            document.getElementById('dynamicText').style.fontSize = size + 'px';
+        }
+
+        // Modal Functions
+        function openModal() {
+            document.getElementById('myModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('myModal').style.display = 'none';
+        }
+
+        // Form Validation Function
+        function validateForm() {
+            let isValid = true;
+            
+            // Name Validation
+            const name = document.getElementById('name');
+            const nameError = document.getElementById('nameError');
+            if (name.value.length < 3) {
+                nameError.textContent = 'Name must be at least 3 characters';
+                isValid = false;
+            } else {
+                nameError.textContent = '';
+            }
+
+            // Email Validation
+            const email = document.getElementById('email');
+            const emailError = document.getElementById('emailError');
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email.value)) {
+                emailError.textContent = 'Invalid email format';
+                isValid = false;
+            } else {
+                emailError.textContent = '';
+            }
+
+            // Password Validation
+            const password = document.getElementById('password');
+            const passwordError = document.getElementById('passwordError');
+            const passwordRegex = /^(?=.*[A-Z])(?=.*\d).{8,}$/;
+            if (!passwordRegex.test(password.value)) {
+                passwordError.textContent = 'Password must be 8+ chars, include uppercase & number';
+                isValid = false;
+            } else {
+                passwordError.textContent = '';
+            }
+
+            return isValid;
+        }
+
+        // Dropdown Message Function
+        function showCustomMessage() {
+            const dropdown = document.getElementById('messageDropdown');
+            const messageDiv = document.getElementById('dropdownMessage');
+            
+            switch(dropdown.value) {
+                case 'option1':
+                    messageDiv.textContent = 'You selected Option 1';
+                    break;
+                case 'option2':
+                    messageDiv.textContent = 'You selected Option 2';
+                    break;
+                case 'option3':
+                    messageDiv.textContent = 'You selected Option 3';
+                    break;
+                default:
+                    messageDiv.textContent = '';
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Tutorial: From Basics to Styling</title>
+    <!-- External CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Internal css -->
+    <style>
+        .code-block {
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+            padding: 10px;
+            font-family: monospace;
+            margin: 10px 0;
+        }
+
+        .selector-example {
+            color: green;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Inline CSS -->
+    <h1 style="color: blue; text-align: center; border-bottom: 2px solid blue; padding-bottom: 10px;">CSS Tutorial:
+        Styling Web Pages</h1>
+
+    <h2>🎯 Objectives</h2>
+    <p>By the end of this tutorial, you will:</p>
+    <ul>
+        <li>🎨 Understand the basics of CSS and its role in styling web pages</li>
+        <li>🛠️ Apply CSS rules to create visually appealing and organized web content</li>
+    </ul>
+
+    <h2>📚 Content Overview</h2>
+
+    <h3>1. CSS Basics: Selectors, Properties, and Values</h3>
+
+    <p>CSS (Cascading Style Sheets) controls how HTML elements appear on a webpage.</p>
+
+    <h4>✨ Structure of a CSS Rule</h4>
+    <p>A CSS rule consists of:</p>
+    <ul>
+        <li>Selector: Targets an HTML element</li>
+        <li>Property: Defines what to style</li>
+        <li>Value: Specifies the styling applied</li>
+    </ul>
+
+    <div class="code-block">
+        selector { property: value; }
+    </div>
+
+    <h4>🎯 Example</h4>
+    <div class="code-block" style="font-size: 16px;color: blue; text-align: center;">
+        h1 { color: blue; text-align: center; }
+    </div>
+
+    <h4>✨ Common Selectors</h4>
+
+    <h5>Element Selector</h5>
+    <p class="code-block selector-example">p { font-size: 16px; }</p>
+    <p style="font-size: 16px;">Targets all instances of an element. (font-16px)</p>
+
+    <h5>Class Selector</h5>
+    <p class="code-block selector-example">.highlight { background-color: yellow; }</p>
+    <p>Targets elements with a specific class.</p>
+    <p class="highlight">This is highlighted!</p>
+
+    <h5>ID Selector</h5>
+    <p class="code-block selector-example">#unique {
+        border: 2px solid #333;
+        padding: 20px;
+        margin: 10px 5px;
+        border-radius: 10px;
+        }</p>
+    <div id="unique">Unique box</div>
+
+    <h3>Inline, Internal, and External CSS</h3>
+
+    <h4>✨ Inline CSS</h4>
+    <p>Define styles directly in an element's style attribute.</p>
+    <div class="code-block">
+        &lt;p style="color: red;"&gt;<span style="color: red;">This text is red.</span>&lt;/p&gt;
+    </div>
+
+    <h4>✨ Internal CSS</h4>
+    <p>Use the &lt;style&gt; tag in the &lt;head&gt; of your HTML document.</p>
+    <div class="code-block">
+        &lt;head&gt;
+        &nbsp;&nbsp;&lt;style&gt;
+        &nbsp;&nbsp;&nbsp;&nbsp;body { font-family: pt mono; }
+        &nbsp;&nbsp;&lt;/style&gt;
+        &lt;/head&gt;
+    </div>
+
+    <h4>✨ External CSS</h4>
+    <p>Link an external CSS file using the &lt;link&gt; tag.</p>
+    <div class="code-block">
+        &lt;head&gt;
+        &nbsp;&nbsp;&lt;link rel="stylesheet" href="styles.css"&gt;
+        &lt;/head&gt;
+    </div>
+
+    <div class="card">
+        <h1>A simple card component</h1>
+        <p>This is a simple card component styled using CSS.</p>
+    </div>
+
+    <p><strong>🔑 Best Practice:</strong> Use external CSS for better organization and reusability.</p>
+</body>
+
+</html>
