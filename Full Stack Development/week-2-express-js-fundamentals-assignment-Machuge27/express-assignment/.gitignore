@@ -1,0 +1,3 @@
+# Don't push
+node_modules
+.env
