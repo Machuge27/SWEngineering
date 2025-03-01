@@ -1,0 +1,27 @@
+name: Week 2 Software Testing
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Check if answers.md is empty
+        run: |
+          if [ ! -s answers.md ]; then
+            echo "Error: answers.md is empty or does not exist"
+            exit 1
+          fi
+
+      - name: Mark test successful
+        run: echo "All tests passed successfully!"
