@@ -1,0 +1,5 @@
+"SchoolID";"SchoolName";"Location";"InfrastructureScore";"TotalResources";"TotalResourceQuantity";"AvgStudentPerformance"
+1;"Rural School A";"Rural Area 1";4;4;110.0;67.5
+2;"Urban School B";"Urban Area 1";8;4;240.0;87.5
+3;"Urban School C";"Urban Area 2";7;4;170.0;77.5
+4;"Rural School D";"Rural Area 2";5;4;54.0;57.5

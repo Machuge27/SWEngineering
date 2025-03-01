@@ -1,0 +1,64 @@
+name: Check SQL Assignment
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    env:
+      DB_DATABASE: bill
+      DB_USER: root
+      DB_PASSWORD: root
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Update and install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install mysql-server mysql-client -y
+
+      - name: Start MySQL
+        run: |
+          sudo /etc/init.d/mysql start
+          mysql -e "CREATE DATABASE IF NOT EXISTS $DB_DATABASE;" -u$DB_USER -p$DB_PASSWORD
+
+      - name: Execute SQL script
+        run: |
+          sudo mysql -u$DB_USER -p$DB_PASSWORD $DB_DATABASE < ./answer.sql
+
+      - name: Verify table creation
+        run: |
+          TABLE_COUNT=$(sudo mysql -u$DB_USER -p$DB_PASSWORD --execute="USE $DB_DATABASE; SHOW TABLES;" | grep -c -e 'categories' -e 'customer')
+          if [ "$TABLE_COUNT" -ne 2 ]; then
+            echo "Error: Tables were not created successfully!"
+            exit 1
+          else
+            echo "Tables created successfully."
+          fi
+
+      - name: Verify data insertion into the customer table
+        run: |
+          CUSTOMER_COUNT=$(sudo mysql -u$DB_USER -p$DB_PASSWORD --execute="USE $DB_DATABASE; SELECT COUNT(*) FROM customer;" | tail -n 1)
+          if [ "$CUSTOMER_COUNT" -lt 2 ]; then
+            echo "Error: Data insertion into the customer table failed!"
+            exit 1
+          else
+            echo "Data inserted into the customer table successfully."
+          fi
+      - name: Verify category deletion
+        run: |
+          CATEGORY_COUNT=$(sudo mysql -u$DB_USER -p$DB_PASSWORD --execute="USE $DB_DATABASE; SELECT COUNT(*) FROM categories;" | tail -n 1)
+          if [ "$CATEGORY_COUNT" -lt 2 ]; then
+            echo "Error: Category deletion failed!"
+            exit 1
+          else
+            echo "Category deleted successfully."
+          fi

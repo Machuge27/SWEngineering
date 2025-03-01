@@ -1,0 +1,120 @@
+name: Check SQL Assignment Week 6
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    env:
+      DB_DATABASE: demo
+      DB_USER: root
+      DB_PASSWORD: root
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Update and install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install mysql-server mysql-client -y
+
+      - name: Start MySQL
+        run: |
+          sudo /etc/init.d/mysql start
+          mysql -e "CREATE DATABASE IF NOT EXISTS $DB_DATABASE;" -u$DB_USER -p$DB_PASSWORD
+
+      - name: Execute SQL script (bills.sql)
+        run: |
+          if [ -f ./bills.sql ]; then
+            sudo mysql -u$DB_USER -p$DB_PASSWORD $DB_DATABASE < ./bills.sql
+          else
+            echo "bills.sql file is missing. Failing the workflow."
+            exit 1
+          fi
+
+      - name: Execute SQL script (answers.sql)
+        run: |
+          if [ -f ./answers.sql ]; then
+            sudo mysql -u$DB_USER -p$DB_PASSWORD $DB_DATABASE < ./answers.sql
+          else
+            echo "answers.sql file is missing. Failing the workflow."
+            exit 1
+          fi
+
+      - name: Validate SQL Queries
+        run: |
+          # Question 1 Test
+          RESULT=$(mysql -u$DB_USER -p$DB_PASSWORD $DB_DATABASE -e "SELECT TotalAmount, Status, DueDate, PaymentMethod, PaymentAmount FROM bills INNER JOIN payments USING (BillID) LIMIT 1;" | wc -l)
+          if [ "$RESULT" -eq 0 ]; then
+            echo "Query 1 failed: No results returned."
+            exit 1
+          fi
+
+          # Question 2 Test
+          RESULT=$(mysql -u$DB_USER -p$DB_PASSWORD $DB_DATABASE -e "SELECT customerName, email, customerAddress, TotalAmount, Status FROM customer LEFT JOIN bills USING (customerID) LIMIT 1;" | wc -l)
+          if [ "$RESULT" -eq 0 ]; then
+            echo "Query 2 failed: No results returned."
+            exit 1
+          fi
+
+          # Question 3 Test
+          RESULT=$(mysql -u$DB_USER -p$DB_PASSWORD $DB_DATABASE -e "SELECT BillDate, DueDate, DATEDIFF(DueDate, BillDate) AS Number_of_Days, Status, ItemDescription, Quantity, LineTotal FROM bills RIGHT JOIN bill_items USING (BillID) LIMIT 1;" | wc -l)
+          if [ "$RESULT" -eq 0 ]; then
+            echo "Query 3 failed: No results returned."
+            exit 1
+          fi
+
+          # Question 4 Test: Validate Table Creation and Foreign Key
+          TABLES_EXIST=$(mysql -u$DB_USER -p$DB_PASSWORD $DB_DATABASE -e "SHOW TABLES LIKE 'users';" | wc -l)
+          if [ "$TABLES_EXIST" -eq 0 ]; then
+            echo "Table 'users' not created."
+            exit 1
+          fi
+
+          TABLES_EXIST=$(mysql -u$DB_USER -p$DB_PASSWORD $DB_DATABASE -e "SHOW TABLES LIKE 'user_profiles';" | wc -l)
+          if [ "$TABLES_EXIST" -eq 0 ]; then
+            echo "Table 'user_profiles' not created."
+            exit 1
+          fi
+
+          FOREIGN_KEY=$(mysql -u$DB_USER -p$DB_PASSWORD $DB_DATABASE -e "SELECT CONSTRAINT_NAME FROM information_schema.KEY_COLUMN_USAGE WHERE TABLE_NAME='user_profiles' AND REFERENCED_TABLE_NAME='users';" | wc -l)
+          if [ "$FOREIGN_KEY" -eq 0 ]; then
+            echo "Foreign key constraint between 'user_profiles' and 'users' is missing."
+            exit 1
+          fi
+
+          # Question 5 Test: Validate Table Creation and Foreign Key
+          TABLES_EXIST=$(mysql -u$DB_USER -p$DB_PASSWORD $DB_DATABASE -e "SHOW TABLES LIKE 'departments';" | wc -l)
+          if [ "$TABLES_EXIST" -eq 0 ]; then
+            echo "Table 'departments' not created."
+            exit 1
+          fi
+
+          TABLES_EXIST=$(mysql -u$DB_USER -p$DB_PASSWORD $DB_DATABASE -e "SHOW TABLES LIKE 'employees';" | wc -l)
+          if [ "$TABLES_EXIST" -eq 0 ]; then
+            echo "Table 'employees' not created."
+            exit 1
+          fi
+
+          FOREIGN_KEY=$(mysql -u$DB_USER -p$DB_PASSWORD $DB_DATABASE -e "SELECT CONSTRAINT_NAME FROM information_schema.KEY_COLUMN_USAGE WHERE TABLE_NAME='employees' AND REFERENCED_TABLE_NAME='departments';" | wc -l)
+          if [ "$FOREIGN_KEY" -eq 0 ]; then
+            echo "Foreign key constraint between 'employees' and 'departments' is missing."
+            exit 1
+          fi
+
+          # Question 6 Test
+          RESULT=$(mysql -u$DB_USER -p$DB_PASSWORD $DB_DATABASE -e "SELECT CategoryName, TotalAmount, DueDate, customerName, customerAddress FROM categories INNER JOIN bills USING (CategoryID) LEFT JOIN customer USING (CustomerID) LIMIT 1;" | wc -l)
+          if [ "$RESULT" -eq 0 ]; then
+            echo "Query 6 failed: No results returned."
+            exit 1
+          fi
+
+      - name: Mark test successful
+        run: echo "All tests passed successfully!"

@@ -1,0 +1,90 @@
+name: Check SQL Assignment Week 5
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    env:
+      DB_DATABASE: demo
+      DB_USER: root
+      DB_PASSWORD: root
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Update and install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install mysql-server mysql-client -y
+
+      - name: Start MySQL
+        run: |
+          sudo /etc/init.d/mysql start
+          mysql -e "CREATE DATABASE IF NOT EXISTS $DB_DATABASE;" -u$DB_USER -p$DB_PASSWORD
+
+      - name: Execute SQL script (bills.sql)
+        run: |
+          if [ -f ./bills.sql ]; then
+            sudo mysql -u$DB_USER -p$DB_PASSWORD $DB_DATABASE < ./bills.sql
+          else
+            echo "bills.sql file is missing. Failing the workflow."
+            exit 1
+          fi
+
+      - name: Execute and Test SQL answers
+        run: |
+          # Check if the answers.sql file exists and is not empty
+          if [ ! -s ./answers.sql ]; then
+            echo "The answers.sql file is missing or empty. Failing the workflow."
+            exit 1
+          fi
+           # Create an index named IdxEmail on customer(email)
+          sudo mysql -u$DB_USER -p$DB_PASSWORD $DB_DATABASE -e "CREATE INDEX IdxEmail ON customer(email);"
+
+          # Execute the student's answers
+          sudo mysql -u$DB_USER -p$DB_PASSWORD $DB_DATABASE < ./answers.sql
+          
+          # Test if the index 'IdxTotalAmount' is created
+          INDEX_EXIST=$(mysql -u$DB_USER -p$DB_PASSWORD $DB_DATABASE -e "SHOW INDEX FROM bills WHERE Key_name='IdxTotalAmount';" | grep 'IdxTotalAmount' | wc -l)
+          if [ "$INDEX_EXIST" -eq "0" ]; then
+            echo "Index 'IdxTotalAmount' was not created correctly."
+            echo "Current indexes:"
+            mysql -u$DB_USER -p$DB_PASSWORD $DB_DATABASE -e "SHOW INDEX FROM bills;"
+            exit 1
+          fi
+
+          # Test if the user 'bob' is created
+          USER_EXIST=$(mysql -u$DB_USER -p$DB_PASSWORD -e "SELECT User FROM mysql.user WHERE User='bob';" | grep 'bob' | wc -l)
+          if [ "$USER_EXIST" -eq "0" ]; then
+            echo "User 'bob' was not created correctly."
+            echo "Current users:"
+            mysql -u$DB_USER -p$DB_PASSWORD -e "SELECT User FROM mysql.user;"
+            exit 1
+          fi
+
+          # Test if the INSERT privilege is granted to 'bob'
+          PRIVILEGE_EXIST=$(mysql -u$DB_USER -p$DB_PASSWORD -e "SHOW GRANTS FOR 'bob'@'localhost';" | grep 'INSERT' | wc -l)
+          if [ "$PRIVILEGE_EXIST" -eq "0" ]; then
+            echo "INSERT privilege was not granted to user 'bob'."
+            echo "Current privileges for 'bob':"
+            mysql -u$DB_USER -p$DB_PASSWORD -e "SHOW GRANTS FOR 'bob'@'localhost';"
+            exit 1
+          fi
+
+          # Test if the password was changed for 'bob'
+          PASSWORD_CHANGE=$(mysql -u$DB_USER -p$DB_PASSWORD -e "SELECT host FROM mysql.user WHERE user='bob' AND authentication_string IS NOT NULL;" | grep 'localhost' | wc -l)
+          if [ "$PASSWORD_CHANGE" -eq "0" ]; then
+            echo "Password for user 'bob' was not changed correctly."
+            exit 1
+          fi
+
+      - name: Mark test successful
+        run: echo "All tests passed successfully!"

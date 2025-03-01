@@ -1,0 +1,42 @@
+name: Check SQL Assignment
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    env:
+      DB_DATABASE: demo
+      DB_USER: root
+      DB_PASSWORD: root
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Update and install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install mysql-server mysql-client -y
+      - name: Start MySQL
+        run: |
+          sudo /etc/init.d/mysql start
+          mysql -e "CREATE DATABASE IF NOT EXISTS $DB_DATABASE;" -u$DB_USER -p$DB_PASSWORD
+      - name: Execute SQL script (bills.sql)
+        run: |
+          sudo mysql -u$DB_USER -p$DB_PASSWORD $DB_DATABASE < ./bills.sql
+      - name: Execute SQL queries in answer.sql and capture output
+        run: |
+          # Check if the answers.sql file is empty
+          if [ ! -s ./answers.sql ]; then
+            echo "The answers.sql file is empty. Failing the workflow."
+            exit 1
+          fi
+          sudo mysql -u$DB_USER -p$DB_PASSWORD $DB_DATABASE < ./answer.sql
+          
