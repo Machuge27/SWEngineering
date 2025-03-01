@@ -24,19 +24,19 @@ This repository serves as a collection of all my **assignments, practicals, codi
 |--------|------------|---------------|
 | 🐍 **Python Programming** | Python assignments & exercises | _[Python](https://github.com/Machuge27/SWEngineering/tree/main/Python)_ |
 | 🌐 **Web Technologies V2.0** | Frontend & Backend Web Development | _[Web Development](https://github.com/Machuge27/SWEngineering/tree/main/Web%20Development)_ |
-| 🏗️ **Software Engineering** | Software development principles & best practices | _[Web Practicals](https://github.com/Machuge27/SWEngineering/tree/main/Software_Engineering)_ |
-| 🗄️ **Database Design & Programming** | SQL, relational databases, and data modeling | _[Web Practicals](https://github.com/Machuge27/SWEngineering/tree/main/Database)_ |
+| 🏗️ **Software Engineering** | Software development principles & best practices | _[Software Engineering](https://github.com/Machuge27/SWEngineering/tree/main/Software_Engineering)_ |
+| 🗄️ **Database Design & Programming** | SQL, relational databases, and data modeling | _[Database](https://github.com/Machuge27/SWEngineering/tree/main/Database)_ |
 | 🤖 **AI for Software Engineering** | Introduction to Artificial Intelligence | _[AI for Software Engineering](https://github.com/Machuge27/SWEngineering/tree/main/AI%20for%20Software%20Development)_ |
 | 📱 **Dart with Flutter** | Mobile development using Dart & Flutter | _[Dart with Flutter](https://github.com/Machuge27/SWEngineering/tree/main/Dart%20with%20Flutter)_ |
 | 🚀 **Full-Stack Development (MERN)** | Backend & Full-Stack Web Dev | _[Full Stack Development](https://github.com/Machuge27/SWEngineering/tree/main/Full%20Stack%20Development)_ |
-| 🎯 **Entrepreneurship & Personal Development** | Startup and business development | _[Entrepreneurship & Personal Development](https://github.com/Machuge27/SWEngineering/tree/main/Startups)_ |
+| 🎯 **Entrepreneurship & Personal Development** | Startup and business development | _[Startups](https://github.com/Machuge27/SWEngineering/tree/main/Startups)_ |
 
 ---
 
 ## 🏆 Hackathons & Code Challenges  
 
 💡 For hackathon projects and coding challenges, visit:  
-🔗 [Hackathons Repository](https://github.com/Machuge27/SWEngineering/tree/main/Hackathons)  
+🔗 [Hackathons](https://github.com/Machuge27/SWEngineering/tree/main/Hackathons)  
 
 ---
 
