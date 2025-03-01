@@ -22,8 +22,8 @@ This repository serves as a collection of all my **assignments, practicals, codi
 
 | Module | Description | Directory Link |
 |--------|------------|---------------|
-| 🐍 **Python Programming** | Python assignments & exercises | _[Python Practicals](https://github.com/Machuge27/SWEngineering/tree/main/python_pracs)_ |
-| 🌐 **Web Technologies V2.0** | Frontend & Backend Web Development | _[Web Practicals](https://github.com/Machuge27/SWEngineering/tree/main/web_pracs)_ |
+| 🐍 **Python Programming** | Python assignments & exercises | _[Python](https://github.com/Machuge27/SWEngineering/tree/main/Python)_ |
+| 🌐 **Web Technologies V2.0** | Frontend & Backend Web Development | _[Web Development](https://github.com/Machuge27/SWEngineering/tree/main/Web%20Development)_ |
 | 🏗️ **Software Engineering** | Software development principles & best practices | _[Web Practicals](https://github.com/Machuge27/SWEngineering/tree/main/Software_Engineering)_ |
 | 🗄️ **Database Design & Programming** | SQL, relational databases, and data modeling | _[Web Practicals](https://github.com/Machuge27/SWEngineering/tree/main/Database)_ |
 | 🤖 **AI for Software Engineering** | Introduction to Artificial Intelligence | _[AI for Software Engineering](https://github.com/Machuge27/SWEngineering/tree/main/AI%20for%20Software%20Development)_ |
