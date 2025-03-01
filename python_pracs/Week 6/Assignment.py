@@ -1,1 +1,0 @@
-## NO ASSIGNMENT FOR WEEK 6 ##  

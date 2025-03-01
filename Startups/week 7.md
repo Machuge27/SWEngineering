@@ -302,3 +302,5 @@ Contracts are like seat belts—don’t start your journey without them. Whether
 [Session Recording](https://powerlearnproject-org.zoom.us/rec/share/fAE-FjaQbiity3KoPlgf3dWZb44RGBmJxD0wrCA4Woc2L9eG51EYPjUWnvCfHAWP.wk3hj-aRFTICfUOz)
 
 Passcode: *s?qJ7Yf
+
+https://www.canva.com/design/DAGdzxz7Qwc/CHzal3BbewS-cDt4jvCNFg/edit?ui=eyJIIjp7IkEiOnRydWV9fQ
