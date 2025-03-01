@@ -29,6 +29,7 @@ This repository serves as a collection of all my **assignments, practicals, codi
 | 🤖 **AI for Software Engineering** | Introduction to Artificial Intelligence | _[AI for Software Engineering](https://github.com/Machuge27/SWEngineering/tree/main/AI%20for%20Software%20Development)_ |
 | 📱 **Dart with Flutter** | Mobile development using Dart & Flutter | _[Dart with Flutter](https://github.com/Machuge27/SWEngineering/tree/main/Dart%20with%20Flutter)_ |
 | 🚀 **Full-Stack Development (MERN)** | Backend & Full-Stack Web Dev | _[Full Stack Development](https://github.com/Machuge27/SWEngineering/tree/main/Full%20Stack%20Development)_ |
+| 🔍 **Software Testing** | Fundamentals of software testing | _[Software Testing](https://github.com/Machuge27/SWEngineering/tree/main/Software%20Testing)_ |
 | 🎯 **Entrepreneurship & Personal Development** | Startup and business development | _[Startups](https://github.com/Machuge27/SWEngineering/tree/main/Startups)_ |
 
 ---
